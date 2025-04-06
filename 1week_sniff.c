@@ -15,7 +15,7 @@ void got_packet(u_char *args, const struct pcap_pkthdr *header, const u_char *pa
         // Ethernet 헤더 다음 위치부터 IP 헤더로 읽음
 
         if (ip->iph_protocol == IPPROTO_TCP) {  // TCP만 처리
-            int ip_header_len = ip->iph_ihl * 4 // Ip 헤더 계산
+            int ip_header_len = ip->iph_ihl * 4; // Ip 헤더 계산
             struct tcpheader *tcp = (struct tcpheader *)(packet + sizeof(struct ethheader) + ip_header_len);
             // IP 헤더는 가변적이기 때문에 실제 바이트 단위의 길이를 계산 후 TCP 헤더 시작 위치를 결정
 
