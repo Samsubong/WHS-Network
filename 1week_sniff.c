@@ -10,7 +10,7 @@ void got_packet(u_char *args, const struct pcap_pkthdr *header, const u_char *pa
     struct ethheader *eth = (struct ethheader *)packet;
     // libcap가 캡쳐해온 packet 데이터를 ethheader 구조체로 해석한다
 
-    if (ntohs(eth->ether_type) == 0x0800) {  // IP 패킷만 처리
+    if (ntohs(eth->ether_type) == 0x0800) {  // IP v4 패킷만 처리
         struct ipheader *ip = (struct ipheader *)(packet + sizeof(struct ethheader));
         // Ethernet 헤더 다음 위치부터 IP 헤더로 읽음
 
