@@ -63,7 +63,7 @@ int main() {
     pcap_t *handle; // 패킷 캡처 세션을 저장함
     char errbuf[PCAP_ERRBUF_SIZE]; // 에러메시지 저장할 버퍼선언
     struct bpf_program fp; // BPF 필터를 컴파일하는 데 사용하는 구조체 선언
-    char filter_exp[] = "icmp"; // 캡처할 패킷 지정
+    char filter_exp[] = "tcp port 80"; // 캡처할 패킷 지정
     bpf_u_int32 net; // 네트워크 저장 변수 net 선언
 
     // Step 1: Open live pcap session on NIC with name enp0s3
